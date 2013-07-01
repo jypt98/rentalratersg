@@ -24,26 +24,26 @@ URL:      www.noaesthetic.com
 
    <Group description="Page Text" selector="body">
      <Variable name="body.font" description="Font" type="font"
-         default="normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal normal 12px 'Trebuchet MS', Trebuchet, Verdana, sans-serif"/>
+         default="normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal normal 12px Verdana, Geneva, sans-serif"/>
      <Variable name="body.text.color" description="Text Color" type="color" default="#222222" value="#666666"/>
    </Group>
 
    <Group description="Backgrounds" selector=".body-fauxcolumns-outer">
      <Variable name="body.background.color" description="Outer Background" type="color" default="#66bbdd" value="#ffffff"/>
-     <Variable name="content.background.color" description="Main Background" type="color" default="#ffffff" value="#ffffff"/>
+     <Variable name="content.background.color" description="Main Background" type="color" default="#ffffff" value="transparent"/>
      <Variable name="header.background.color" description="Header Background" type="color" default="transparent" value="transparent"/>
    </Group>
 
    <Group description="Links" selector=".main-outer">
-     <Variable name="link.color" description="Link Color" type="color" default="#2288bb" value="#2288bb"/>
+     <Variable name="link.color" description="Link Color" type="color" default="#2288bb" value="#8cbfb9"/>
      <Variable name="link.visited.color" description="Visited Color" type="color" default="#888888" value="#888888"/>
      <Variable name="link.hover.color" description="Hover Color" type="color" default="#33aaff" value="#33aaff"/>
    </Group>
 
    <Group description="Blog Title" selector=".header h1">
      <Variable name="header.font" description="Font" type="font"
-         default="normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal normal 40px 'Trebuchet MS',Trebuchet,Verdana,sans-serif"/>
-     <Variable name="header.text.color" description="Title Color" type="color" default="#3399bb"  value="#000000"/>
+         default="normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="italic normal 38px Verdana, Geneva, sans-serif"/>
+     <Variable name="header.text.color" description="Title Color" type="color" default="#3399bb"  value="#8cbfb9"/>
    </Group>
 
    <Group description="Blog Description" selector=".header .description">
@@ -53,8 +53,8 @@ URL:      www.noaesthetic.com
 
    <Group description="Tabs Text" selector=".tabs-inner .widget li a">
      <Variable name="tabs.font" description="Font" type="font"
-         default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="$(body.font)"/>
-     <Variable name="tabs.text.color" description="Text Color" type="color" default="#999999" value="#000000"/>
+         default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal normal 16px Verdana, Geneva, sans-serif"/>
+     <Variable name="tabs.text.color" description="Text Color" type="color" default="#999999" value="#444444"/>
      <Variable name="tabs.selected.text.color" description="Selected Color" type="color" default="#000000" value="#000000"/>
    </Group>
 
@@ -65,7 +65,7 @@ URL:      www.noaesthetic.com
 
    <Group description="Post Title" selector="h3.post-title, .comments h4">
      <Variable name="post.title.font" description="Font" type="font"
-         default="normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal normal 22px 'Trebuchet MS',Trebuchet,Verdana,sans-serif"/>
+         default="normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal normal 22px Verdana, Geneva, sans-serif"/>
    </Group>
 
    <Group description="Date Header" selector=".date-header">
@@ -84,15 +84,15 @@ URL:      www.noaesthetic.com
 
    <Group description="Gadgets" selector="h2">
      <Variable name="widget.title.font" description="Title Font" type="font"
-        default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal bold 11px 'Trebuchet MS',Trebuchet,Verdana,sans-serif"/>
-     <Variable name="widget.title.text.color" description="Title Color" type="color" default="#000000" value="#000000"/>
-     <Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#999999" value="#999999"/>
+        default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif" value="normal bold 12px Verdana, Geneva, sans-serif"/>
+     <Variable name="widget.title.text.color" description="Title Color" type="color" default="#000000" value="#444444"/>
+     <Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#999999" value="#444444"/>
    </Group>
 
    <Group description="Images" selector=".main-inner">
      <Variable name="image.background.color" description="Background Color" type="color" default="#ffffff" value="#ffffff"/>
      <Variable name="image.border.color" description="Border Color" type="color" default="#eeeeee" value="#eeeeee"/>
-     <Variable name="image.text.color" description="Caption Text Color" type="color" default="$(body.text.color)" value="$(body.text.color)"/>
+     <Variable name="image.text.color" description="Caption Text Color" type="color" default="$(body.text.color)" value="#666666"/>
    </Group>
 
    <Group description="Accents" selector=".content-inner">
@@ -101,7 +101,7 @@ URL:      www.noaesthetic.com
    </Group>
 
    <Variable name="body.background" description="Body Background" type="background"
-       color="$(body.background.color)" default="$(color) none repeat scroll top left" value="$(color) none repeat scroll top left"/>
+       color="$(body.background.color)" default="$(color) none repeat scroll top left" value="$(color) url(http://4.bp.blogspot.com/-jpaNNOla50g/UdBdk6cOgZI/AAAAAAAAED0/8jOgdlVM2Ts/s1600/bg.png) repeat scroll top left"/>
    <Variable name="body.background.override" description="Body Background Override" type="string" default="" value=""/>
 
    <Variable name="body.background.gradient.cap" description="Body Gradient Cap" type="url"
@@ -578,12 +578,13 @@ body.mobile .AdSense {
 .mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
   border-$startSide: 1px solid $(tabs.border.color);
 }
-]]></b:skin>
+/* 30-Jun-2013 JT Hiding the Home page link at the bottom */
+#blog-pager {display:none;}]]></b:skin>
 
     <b:template-skin>
-      <b:variable default='960px' name='content.width' type='length' value='960px'/>
-      <b:variable default='0' name='main.column.left.width' type='length' value='0px'/>
-      <b:variable default='310px' name='main.column.right.width' type='length' value='310px'/>
+      <b:variable default='960px' name='content.width' type='length' value='1120px'/>
+      <b:variable default='0' name='main.column.left.width' type='length'/>
+      <b:variable default='310px' name='main.column.right.width' type='length'/>
 
       <![CDATA[
       body {
@@ -645,6 +646,10 @@ body.mobile .AdSense {
       ]]>
     </b:template-skin>
     <b:include data='blog' name='google-analytics'/>
+
+<!-- 30-Jun-2013 JT add 5 star rating widget -->
+<link type="text/css" rel="stylesheet" href="http://static.graddit.com/css/graddit.css" />
+
   </head>
 
   <body expr:class='&quot;loading&quot; + data:blog.mobileClass'>
@@ -841,7 +846,39 @@ head.appendChild(script);
     <div class='fauxborder-left tabs-fauxborder-left'>
     <div class='fauxborder-right tabs-fauxborder-right'/>
     <div class='region-inner tabs-inner'>
-      <b:section class='tabs' id='crosscol' maxwidgets='1' showaddelement='yes'/>
+      <b:section class='tabs' id='crosscol' maxwidgets='1' showaddelement='yes'>
+        <b:widget id='PageList1' locked='false' title='Pages' type='PageList'>
+          <b:includable id='main'>
+  <b:if cond='data:title'><h2><data:title/></h2></b:if>
+  <div class='widget-content'>
+    <b:if cond='data:mobile'>
+      <select expr:id='data:widget.instanceId + &quot;_select&quot;'>
+        <b:loop values='data:links' var='link'>
+          <b:if cond='data:link.isCurrentPage'>
+            <option expr:value='data:link.href' selected='selected'><data:link.title/></option>
+          <b:else/>
+            <option expr:value='data:link.href'><data:link.title/></option>
+          </b:if>
+        </b:loop>
+      </select>
+      <span class='pagelist-arrow'>&amp;#9660;</span>
+
+    <b:else/>
+      <ul>
+        <b:loop values='data:links' var='link'>
+          <b:if cond='data:link.isCurrentPage'>
+            <li class='selected'><a expr:href='data:link.href'><data:link.title/></a></li>
+          <b:else/>
+            <li><a expr:href='data:link.href'><data:link.title/></a></li>
+          </b:if>
+        </b:loop>
+      </ul>
+    </b:if>
+    <b:include name='quickedit'/>
+  </div>
+</b:includable>
+        </b:widget>
+      </b:section>
       <b:section class='tabs' id='crosscol-overflow' showaddelement='no'/>
     </div>
     </div>
@@ -1208,7 +1245,7 @@ head.appendChild(script);
   <b:if cond='data:blog.pageType != &quot;item&quot;'> <!-- Blog feed links -->
     <b:if cond='data:feedLinks'>
       <div class='blog-feeds'>
-        <b:include data='feedLinks' name='feedLinksBody'/>
+
       </div>
     </b:if>
 
@@ -1217,7 +1254,7 @@ head.appendChild(script);
       <b:loop values='data:posts' var='post'>
         <b:if cond='data:post.allowComments'>
           <b:if cond='data:post.feedLinks'>
-            <b:include data='post.feedLinks' name='feedLinksBody'/>
+
           </b:if>
         </b:if>
       </b:loop>
@@ -1492,7 +1529,14 @@ head.appendChild(script);
     </b:if>
 
     <div class='post-header'>
-    <div class='post-header-line-1'/>
+    <div class='post-header-line-1'><span class='post-location'>
+        <b:if cond='data:top.showLocation'>
+          <b:if cond='data:post.location'>
+            <data:postLocationLabel/>
+            <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
+          </b:if>
+        </b:if>
+      </span> </div>
     </div>
 
     <b:if cond='data:blog.metaDescription == &quot;&quot;'>
@@ -1500,6 +1544,18 @@ head.appendChild(script);
           for good G+/FB snippeting. -->
       <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='description articleBody'>
         <data:post.body/>
+
+<!-- 30-Jun-2013 JT add 5 star rating widget -->
+<b:if cond='data:blog.pageType != &quot;static_page&quot;'>
+<div expr:id='"labels_" + data:post.id' style='display: none; visibility: hidden;'>
+<b:if cond='data:post.labels'>
+<b:loop values='data:post.labels' var='label'>
+<data:label.name/>,</b:loop></b:if></div>Rate this apartment: <div expr:id='data:post.id' class='ffbs_rate'>{[[&#39;&lt;img src=&quot;http://img.graddit.com/img/ice_star.png&quot;/&gt;&#39;, &#39;&lt;img src=&quot;http://img.graddit.com/img/red_star.png&quot;/&gt;&#39;]]}</div>
+<div expr:id='&quot;feedback_&quot; + data:post.id' class='ffbs_feedback'>{[&quot;Parking&quot;, &quot;State of apartment&quot;, &quot;Noise&quot;, &quot;Location&quot;]}</div>
+<div expr:id='&quot;ffbs_stats_&quot; + data:post.id' class='ffbs_stats'></div>
+<script type='text/javascript' expr:src='&quot;http://graddit.com/rate/eng/5/&quot; + data:post.id + &quot;?id=&quot; + data:post.id + &quot;&amp;stats=ffbs_stats_&quot; + data:post.id + &quot;&amp;&amp;feedback=feedback_&quot; + data:post.id + &quot;&amp;labels=labels_&quot; + data:post.id + &quot;&amp;info=info-&quot; + data:post.id + &quot;&amp;info_delay=2&amp;url=&quot; + data:post.url + &quot;&amp;class_star=ffbs_star_fimg&amp;class_star_set=ffbs_star_fimg&amp;class_star_vote=ffbs_star_fimg&amp;average=yes&amp;views=yes&amp;votes=yes&quot;'></script></b:if>
+<!-- 30-Jun-2013 JT end -->
+
         <div style='clear: both;'/> <!-- clear for photos floats -->
       </div>
     <b:else/>
@@ -1516,13 +1572,14 @@ head.appendChild(script);
     </b:if>
 
     <div class='post-footer'>
-    <div class='post-footer-line post-footer-line-1'><span class='post-comment-link'>
-        <b:if cond='data:blog.pageType != &quot;item&quot;'>
-          <b:if cond='data:blog.pageType != &quot;static_page&quot;'>
-            <b:if cond='data:post.allowComments'>
-              <b:include data='post' name='comment_count_picker'/>
-            </b:if>
-          </b:if>
+    <div class='post-footer-line post-footer-line-1'><span class='reaction-buttons'>
+        <b:if cond='data:top.showReactions'>
+          <table border='0' cellpadding='0' cellspacing='0' width='100%'><tr>
+            <td class='reactions-label-cell' nowrap='nowrap' valign='top' width='1%'>
+              <span class='reactions-label'>
+              <data:top.reactionsLabel/></span>&#160;</td>
+            <td><iframe allowtransparency='true' class='reactions-iframe' expr:src='data:post.reactionsUrl' frameborder='0' name='reactions' scrolling='no'/></td>
+           </tr></table>
         </b:if>
       </span> <span class='post-icons'>
         <!-- email post links -->
@@ -1536,11 +1593,15 @@ head.appendChild(script);
 
         <!-- quickedit pencil -->
         <b:include data='post' name='postQuickEdit'/>
-      </span> <div class='post-share-buttons goog-inline-block'>
-        <b:if cond='data:post.sharePostUrl'>
-          <b:include data='post' name='shareButtons'/>
+      </span> <span class='post-comment-link'>
+        <b:if cond='data:blog.pageType != &quot;item&quot;'>
+          <b:if cond='data:blog.pageType != &quot;static_page&quot;'>
+            <b:if cond='data:post.allowComments'>
+              <b:include data='post' name='comment_count_picker'/>
+            </b:if>
+          </b:if>
         </b:if>
-      </div> </div>
+      </span> </div>
 
       <div class='post-footer-line post-footer-line-2'><span class='post-labels'>
         <b:if cond='data:post.labels'>
@@ -1551,23 +1612,11 @@ head.appendChild(script);
         </b:if>
       </span> </div>
 
-      <div class='post-footer-line post-footer-line-3'><span class='reaction-buttons'>
-        <b:if cond='data:top.showReactions'>
-          <table border='0' cellpadding='0' cellspacing='0' width='100%'><tr>
-            <td class='reactions-label-cell' nowrap='nowrap' valign='top' width='1%'>
-              <span class='reactions-label'>
-              <data:top.reactionsLabel/></span>&#160;</td>
-            <td><iframe allowtransparency='true' class='reactions-iframe' expr:src='data:post.reactionsUrl' frameborder='0' name='reactions' scrolling='no'/></td>
-           </tr></table>
+      <div class='post-footer-line post-footer-line-3'><div class='post-share-buttons goog-inline-block'>
+        <b:if cond='data:post.sharePostUrl'>
+          <b:include data='post' name='shareButtons'/>
         </b:if>
-      </span> <span class='post-location'>
-        <b:if cond='data:top.showLocation'>
-          <b:if cond='data:post.location'>
-            <data:postLocationLabel/>
-            <a expr:href='data:post.location.mapsUrl' target='_blank'><data:post.location.name/></a>
-          </b:if>
-        </b:if>
-      </span> </div>
+      </div> </div>
     </div>
   </div>
 </b:includable>
@@ -1894,7 +1943,7 @@ head.appendChild(script);
     <div class='fauxborder-right footer-fauxborder-right'/>
     <div class='region-inner footer-inner'>
       <macro:include id='footer-sections' name='sections'>
-        <macro:param default='2' name='num'/>
+        <macro:param default='2' name='num' value='1'/>
         <macro:param default='footer' name='idPrefix'/>
         <macro:param default='foot' name='class'/>
         <macro:param default='false' name='includeBottom'/>
@@ -2060,7 +2109,8 @@ head.appendChild(script);
     <b:include name='quickedit'/>
   </b:includable>
   </b:widget>
-  <b:widget id='ContactForm1' locked='false' title='If you can&apos;t find your apartment, please drop me a message and I will add it.' type='ContactForm'>
+</b:section-contents><b:section-contents id='footer-1'>
+  <b:widget id='ContactForm1' locked='false' title='If you can&apos;t find the apartment you are looking for, drop me a message and I will add it.' type='ContactForm'>
     <b:includable id='main'>
   <b:if cond='data:title != &quot;&quot;'>
     <h2 class='title'><data:title/></h2>
@@ -2093,4 +2143,4 @@ head.appendChild(script);
   <b:include name='quickedit'/>
 </b:includable>
   </b:widget>
-</b:section-contents><b:section-contents id='footer-1'/><b:section-contents id='footer-2-1'/><b:section-contents id='footer-2-2'/></html>
+</b:section-contents></html>
