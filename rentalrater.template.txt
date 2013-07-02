@@ -1082,7 +1082,7 @@ head.appendChild(script);
       <p><data:blogCommentMessage/></p>
       <data:blogTeamBlogMessage/>
       <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
-      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410' id='comment-editor' name='comment-editor' src='' width='100%'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410' id='comment-editor' name='comment-editor' src='' width='650px'/>
     </b:if>
     <data:post.friendConnectJs/>
     <data:post.cmtfpIframe/>
@@ -1659,7 +1659,7 @@ head.appendChild(script);
       <p><data:blogCommentMessage/></p>
       <data:blogTeamBlogMessage/>
       <a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
-      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410' id='comment-editor' name='comment-editor' src='' width='100%'/>
+      <iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410' id='comment-editor' name='comment-editor' src='' width='650px'/>
     </b:if>
     <data:post.friendConnectJs/>
     <data:post.cmtfpIframe/>
