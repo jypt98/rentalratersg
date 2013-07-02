@@ -579,7 +579,46 @@ body.mobile .AdSense {
   border-$startSide: 1px solid $(tabs.border.color);
 }
 /* 30-Jun-2013 JT Hiding the Home page link at the bottom */
-#blog-pager {display:none;}]]></b:skin>
+#blog-pager {display:none;}
+
+/* 02-Jul-2013 JT Formatting Contact Form*/
+/* Contact Form Container */
+.contact-form-widget {
+width: 650px;
+max-width: 100%;
+padding: 10px;
+background: #F8F8F8;
+color: #000;
+border: 1px solid #C1C1C1;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+}
+
+/* Fields and submit button */
+.contact-form-name, .contact-form-email, .contact-form-email-message {
+width: 100%;
+max-width: 100%;
+margin-bottom: 10px;
+}
+
+/* Submit button style */
+.contact-form-button-submit {
+border-color: #C1C1C1;
+background: #E3E3E3;
+color: #585858;
+width: 20%;
+max-width: 20%;
+margin-bottom: 10px;
+}
+
+/* Submit button on mouseover */
+.contact-form-button-submit:hover{
+background: #8cbfb9;
+color: #ffffff;
+border: 1px solid #FAFAFA;
+}
+]]>
+</b:skin>
 
     <b:template-skin>
       <b:variable default='960px' name='content.width' type='length' value='1120px'/>
