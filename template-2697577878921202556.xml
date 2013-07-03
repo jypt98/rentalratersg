@@ -1541,19 +1541,6 @@ head.appendChild(script);
   <div class='clear'/>
 </b:includable>
               <b:includable id='post' var='post'>
-<!-- 03-Jul-2013 JT floating share-->
-<b:if cond='data:blog.pageType == &quot;item&quot;'>
-<b:if cond='data:blog.pageType != &quot;static_page&quot;'>
-<script src='http://s7.addthis.com/js/300/addthis_widget.js' type='text/javascript'/>    
-<div class='addthis_toolbox addthis_floating_style addthis_counter_style' style='position:fixed;  margin-left:-79px; float:left; top: 101px; background:#fff; border:3px solid #eeeeee;'>
-<a class='addthis_button_facebook_like' fb:like:layout='box_count'/>
-<a class='addthis_button_tweet' tw:count='vertical'/>
-<a class='addthis_button_google_plusone' g:plusone:size='tall'/>
-<br/>
-<a class='addthis_counter'/>
- </div></b:if></b:if>
-
-<!--floating share end -->
 
   <div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
     <b:if cond='data:post.firstImageUrl'>
@@ -2140,6 +2127,19 @@ head.appendChild(script);
 </b:includable>
   </b:widget>
 </b:section-contents><b:section-contents id='footer-1'>
+  <b:widget id='HTML1' locked='false' title='' type='HTML'>
+    <b:includable id='main'>
+  <!-- only display title if it's non-empty -->
+  <b:if cond='data:title != &quot;&quot;'>
+    <h2 class='title'><data:title/></h2>
+  </b:if>
+  <div class='widget-content'>
+    <data:content/>
+  </div>
+
+  <b:include name='quickedit'/>
+</b:includable>
+  </b:widget>
   <b:widget id='Text1' locked='false' title='' type='Text'>
     <b:includable id='main'>
   <!-- only display title if it's non-empty -->
