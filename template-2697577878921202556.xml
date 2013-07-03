@@ -710,7 +710,7 @@ border: 1px solid #FAFAFA;
         gapi.load(&quot;iframes-styles-bubble&quot;, function() {
           if (window.iframes &amp;&amp; iframes.open) {
             iframes.open(
-                &#39;//www.blogger.com/navbar.g?targetBlogID\0752697577878921202556\46blogName\75Rental+Rater+SG\46publishMode\75PUBLISH_MODE_BLOGSPOT\46navbarType\75DISABLED\46layoutType\75LAYOUTS\46searchRoot\75http://rentalrater.blogspot.com/search\46blogLocale\75en\46v\0752\46homepageUrl\75http://rentalrater.blogspot.com/\46vt\75-9100755788271582533&#39;,
+                &#39;//www.blogger.com/navbar.g?targetBlogID\0752697577878921202556\46blogName\75Rental+Rater+SG\46publishMode\75PUBLISH_MODE_HOSTED\46navbarType\75DISABLED\46layoutType\75LAYOUTS\46searchRoot\75http://www.rentalrater.sg/search\46blogLocale\75en\46v\0752\46homepageUrl\75http://www.rentalrater.sg/\46vt\0757407616106467575328&#39;,
                 {
                   container: &quot;navbar-iframe-container&quot;,
                   id: &quot;navbar-iframe&quot;
@@ -1541,6 +1541,20 @@ head.appendChild(script);
   <div class='clear'/>
 </b:includable>
               <b:includable id='post' var='post'>
+<!-- 03-Jul-2013 JT floating share-->
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+<b:if cond='data:blog.pageType != &quot;static_page&quot;'>
+<script src='http://s7.addthis.com/js/300/addthis_widget.js' type='text/javascript'/>    
+<div class='addthis_toolbox addthis_floating_style addthis_counter_style' style='position:fixed;  margin-left:-79px; float:left; top: 101px; background:#fff; border:3px solid #eeeeee;'>
+<a class='addthis_button_facebook_like' fb:like:layout='box_count'/>
+<a class='addthis_button_tweet' tw:count='vertical'/>
+<a class='addthis_button_google_plusone' g:plusone:size='tall'/>
+<br/>
+<a class='addthis_counter'/>
+ </div></b:if></b:if>
+
+<!--floating share end -->
+
   <div class='post hentry' itemprop='blogPost' itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
     <b:if cond='data:post.firstImageUrl'>
       <meta expr:content='data:post.firstImageUrl' itemprop='image_url'/>
