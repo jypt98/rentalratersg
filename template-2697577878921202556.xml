@@ -76,10 +76,10 @@ URL:      www.noaesthetic.com
    </Group>
 
    <Group description="Post Footer" selector=".post-footer">
-     <Variable name="post.footer.text.color" description="Text Color" type="color" default="#666666" value="#666666"/>
+     <Variable name="post.footer.text.color" description="Text Color" type="color" default="#666666" value="#444444"/>
      <Variable name="post.footer.background.color" description="Background Color" type="color"
-         default="#f9f9f9" value="#eeeeee"/>
-     <Variable name="post.footer.border.color" description="Shadow Color" type="color" default="#eeeeee" value="#eeeeee"/>
+         default="#f9f9f9" value="transparent"/>
+     <Variable name="post.footer.border.color" description="Shadow Color" type="color" default="#eeeeee" value="#444444"/>
    </Group>
 
    <Group description="Gadgets" selector="h2">
@@ -578,9 +578,19 @@ body.mobile .AdSense {
 .mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
   border-$startSide: 1px solid $(tabs.border.color);
 }
-/* 30-Jun-2013 JT Hiding the Home page link at the bottom */
-#blog-pager {display:none;}
+/* 30-Jun-2013 JT Hiding the Home page link at the bottom (removed) */
+/* 6-Jul-2013 JT Formatted blog page options */
+.blog-pager {
+   background: none!important;
+}
 
+#blog-pager-newer-link {
+float: left;
+}
+
+#blog-pager-older-link {
+float: right;
+}
 /* 02-Jul-2013 JT Formatting Contact Form*/
 /* Contact Form Container */
 .contact-form-widget {
@@ -616,14 +626,12 @@ margin-bottom: 10px;
 background: #8cbfb9;
 color: #ffffff;
 border: 1px solid #FAFAFA;
-}
-
-]]></b:skin>
+}]]></b:skin>
 
     <b:template-skin>
       <b:variable default='960px' name='content.width' type='length' value='1120px'/>
       <b:variable default='0' name='main.column.left.width' type='length' value='0px'/>
-      <b:variable default='310px' name='main.column.right.width' type='length' value='310px'/>
+      <b:variable default='310px' name='main.column.right.width' type='length' value='320px'/>
 
       <![CDATA[
       body {
@@ -693,7 +701,7 @@ border: 1px solid #FAFAFA;
 
   <body expr:class='&quot;loading&quot; + data:blog.mobileClass'>
   <b:section class='navbar' id='navbar' maxwidgets='1' showaddelement='no'>
-    <b:widget id='Navbar1' locked='true' title='Navbar' type='Navbar'>
+    <b:widget id='Navbar1' locked='false' title='Navbar' type='Navbar'>
       <b:includable id='main'>&lt;script type=&quot;text/javascript&quot;&gt;
     function setAttributeOnload(object, attribute, val) {
       if(window.addEventListener) {
@@ -798,7 +806,7 @@ head.appendChild(script);
     <div class='fauxborder-right header-fauxborder-right'/>
     <div class='region-inner header-inner'>
       <b:section class='header' id='header' maxwidgets='1' showaddelement='no'>
-        <b:widget id='Header1' locked='true' title='Rental Rater SG (Header)' type='Header'>
+        <b:widget id='Header1' locked='false' title='Rental Rater SG (Header)' type='Header'>
           <b:includable id='main'>
 
   <b:if cond='data:useImage'>
@@ -993,7 +1001,7 @@ head.appendChild(script);
         <div class='column-center-outer'>
         <div class='column-center-inner'>
           <b:section class='main' id='main' showaddelement='no'>
-            <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+            <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog'>
               <b:includable id='main' var='top'>
   <b:if cond='data:mobile == &quot;false&quot;'>
 
@@ -1586,12 +1594,13 @@ head.appendChild(script);
         <data:post.body/>
 
 <!-- 30-Jun-2013 JT add 5 star rating widget -->
-<b:if cond='data:blog.pageType != &quot;static_page&quot;'>
+<br/>
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
 <div expr:id='&quot;labels_&quot; + data:post.id' style='display: none; visibility: hidden;'>
 <b:if cond='data:post.labels'>
 <b:loop values='data:post.labels' var='label'>
 <data:label.name/>,</b:loop></b:if></div>Rate this apartment: <div class='ffbs_rate' expr:id='data:post.id'>{[[&#39;&lt;img src=&quot;http://img.graddit.com/img/ice_star.png&quot;/&gt;&#39;, &#39;&lt;img src=&quot;http://img.graddit.com/img/red_star.png&quot;/&gt;&#39;]]}</div>
-<div class='ffbs_feedback' expr:id='&quot;feedback_&quot; + data:post.id'>{[&quot;Ease of parking&quot;, &quot;Good apartment state&quot;, &quot;Quiet&quot;, &quot;Good location&quot;, &quot;Good surroundings&quot;]}</div>
+<div class='ffbs_feedback' expr:id='&quot;feedback_&quot; + data:post.id'>{[&quot;Ease of parking&quot;, &quot;Good condition&quot;, &quot;Quiet&quot;, &quot;Good location&quot;, &quot;Good surroundings&quot;]}</div>
 <div class='ffbs_stats' expr:id='&quot;ffbs_stats_&quot; + data:post.id'/>
 <script expr:src='&quot;http://graddit.com/rate/eng/5/&quot; + data:post.id + &quot;?id=&quot; + data:post.id + &quot;&amp;stats=ffbs_stats_&quot; + data:post.id + &quot;&amp;&amp;feedback=feedback_&quot; + data:post.id + &quot;&amp;labels=labels_&quot; + data:post.id + &quot;&amp;info=info-&quot; + data:post.id + &quot;&amp;info_delay=2&amp;url=&quot; + data:post.url + &quot;&amp;class_star=ffbs_star_fimg&amp;class_star_set=ffbs_star_fimg&amp;class_star_vote=ffbs_star_fimg&amp;average=yes&amp;views=yes&amp;votes=yes&quot;' type='text/javascript'/></b:if>
 <!-- 30-Jun-2013 JT end -->
@@ -1601,6 +1610,19 @@ head.appendChild(script);
     <b:else/>
       <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id' itemprop='articleBody'>
         <data:post.body/>
+
+<!-- 5-Jul-2013 JT add 5 star rating widget -->
+<br/>
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+<div expr:id='&quot;labels_&quot; + data:post.id' style='display: none; visibility: hidden;'>
+<b:if cond='data:post.labels'>
+<b:loop values='data:post.labels' var='label'>
+<data:label.name/>,</b:loop></b:if></div>Rate this apartment: <div class='ffbs_rate' expr:id='data:post.id'>{[[&#39;&lt;img src=&quot;http://img.graddit.com/img/ice_star.png&quot;/&gt;&#39;, &#39;&lt;img src=&quot;http://img.graddit.com/img/red_star.png&quot;/&gt;&#39;]]}</div>
+<div class='ffbs_feedback' expr:id='&quot;feedback_&quot; + data:post.id'>{[&quot;Ease of parking&quot;, &quot;Good condition&quot;, &quot;Quiet&quot;, &quot;Good location&quot;, &quot;Good surroundings&quot;]}</div>
+<div class='ffbs_stats' expr:id='&quot;ffbs_stats_&quot; + data:post.id'/>
+<script expr:src='&quot;http://graddit.com/rate/eng/5/&quot; + data:post.id + &quot;?id=&quot; + data:post.id + &quot;&amp;stats=ffbs_stats_&quot; + data:post.id + &quot;&amp;&amp;feedback=feedback_&quot; + data:post.id + &quot;&amp;labels=labels_&quot; + data:post.id + &quot;&amp;info=info-&quot; + data:post.id + &quot;&amp;info_delay=2&amp;url=&quot; + data:post.url + &quot;&amp;class_star=ffbs_star_fimg&amp;class_star_set=ffbs_star_fimg&amp;class_star_vote=ffbs_star_fimg&amp;average=yes&amp;views=yes&amp;votes=yes&quot;' type='text/javascript'/></b:if>
+<!-- 5-Jul-2013 JT end -->
+
         <div style='clear: both;'/> <!-- clear for photos floats -->
       </div>
     </b:if>
@@ -1989,25 +2011,7 @@ head.appendChild(script);
         <macro:param default='false' name='includeBottom'/>
       </macro:include>
       <!-- outside of the include in order to lock Attribution widget -->
-      <b:section class='foot' id='footer-3' showaddelement='no'>
-        <b:widget id='Attribution1' locked='true' title='' type='Attribution'>
-          <b:includable id='main'>
-    <b:if cond='data:feedbackSurveyLink'>
-      <div class='mobile-survey-link' style='text-align: center;'>
-        <data:feedbackSurveyLink/>
-      </div>
-    </b:if>
-
-    <div class='widget-content' style='text-align: center;'>
-      <b:if cond='data:attribution != &quot;&quot;'>
-       <data:attribution/>
-      </b:if>
-    </div>
-
-    <b:include name='quickedit'/>
-  </b:includable>
-        </b:widget>
-      </b:section>
+      <b:section class='foot' id='footer-3' showaddelement='no'/>
     </div>
     </div>
     <div class='footer-cap-bottom cap-bottom'>
@@ -2087,7 +2091,7 @@ head.appendChild(script);
   <b:include name='quickedit'/>
 </b:includable>
   </b:widget>
-  <b:widget id='Label1' locked='false' title='Labels' type='Label'>
+  <b:widget id='Label1' locked='false' title='Quick Links' type='Label'>
     <b:includable id='main'>
   <b:if cond='data:title'>
     <h2><data:title/></h2>
@@ -2126,20 +2130,6 @@ head.appendChild(script);
   </div>
 </b:includable>
   </b:widget>
-</b:section-contents><b:section-contents id='footer-1'>
-  <b:widget id='HTML1' locked='false' title='' type='HTML'>
-    <b:includable id='main'>
-  <!-- only display title if it's non-empty -->
-  <b:if cond='data:title != &quot;&quot;'>
-    <h2 class='title'><data:title/></h2>
-  </b:if>
-  <div class='widget-content'>
-    <data:content/>
-  </div>
-
-  <b:include name='quickedit'/>
-</b:includable>
-  </b:widget>
   <b:widget id='Text1' locked='false' title='' type='Text'>
     <b:includable id='main'>
   <!-- only display title if it's non-empty -->
@@ -2153,7 +2143,7 @@ head.appendChild(script);
   <b:include name='quickedit'/>
 </b:includable>
   </b:widget>
-  <b:widget id='ContactForm1' locked='false' title='Contact me' type='ContactForm'>
+  <b:widget id='ContactForm1' locked='false' title='Contact Me' type='ContactForm'>
     <b:includable id='main'>
   <b:if cond='data:title != &quot;&quot;'>
     <h2 class='title'><data:title/></h2>
@@ -2186,4 +2176,15 @@ head.appendChild(script);
   <b:include name='quickedit'/>
 </b:includable>
   </b:widget>
-</b:section-contents></html>
+  <b:widget id='Feed1' locked='false' title='Recent Comments' type='Feed'>
+    <b:includable id='main'>
+    <h2><data:title/></h2>
+    <div class='widget-content' expr:id='data:widget.instanceId + &quot;_feedItemListDisplay&quot;'>
+      <span style='filter: alpha(25); opacity: 0.25;'>
+        <a expr:href='data:feedUrl'><data:loadingMsg/></a>
+      </span>
+    </div>
+    <b:include name='quickedit'/>
+  </b:includable>
+  </b:widget>
+</b:section-contents><b:section-contents id='footer-1'/></html>
